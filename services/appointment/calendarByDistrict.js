@@ -12,7 +12,7 @@ const getAppointments = async (districtId, date) => {
         }
     };
 
-    return await axios(params);
+    return axios(params);
 };
 
 const getSimpleAppointmentsToday = (districtId) => {
