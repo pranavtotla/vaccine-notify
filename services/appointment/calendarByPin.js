@@ -14,6 +14,21 @@ const getAppointments = async (pincode, date) => {
     return await axios(params);
 };
 
+const getSimpleAppointmentsToday = (pincode) => {
+    const today = moment();
+    const todayString = today.format('DD-MM-YYYY');
+    return getAppointments(pincode, todayString);
+};
+
+const getSimpleAppointmentsTomorrow = (pincode) => {
+    const today = moment();
+    today.add(1, 'day');
+    const tomorrowString = today.format('DD-MM-YYYY');
+    return getAppointments(pincode, tomorrowString);
+};
+
 module.exports = {
-    get: getAppointments
+    get: getAppointments,
+    today: getSimpleAppointmentsToday,
+    tomorrow: getSimpleAppointmentsTomorrow
 };
