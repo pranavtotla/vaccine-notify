@@ -12,7 +12,7 @@ const getCentersUnder18 = districtId => {
                 for(const center of centers){
                     const sessions = center.sessions;
                     for(const session of sessions){
-                        if(session.min_age_limit < 46){
+                        if(session.min_age_limit < 18){
                             const data = {
                                 centerName:center.name, 
                                 pincode: center.pincode, 
