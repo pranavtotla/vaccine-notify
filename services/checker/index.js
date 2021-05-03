@@ -64,6 +64,16 @@ const notifyCentersUnder18 = async districtId => {
     await allPromises;
 };
 
+const job = new CronJob('*/10 * * * * *', async () => {
+    await notifyCentersUnder18(278); //Dharwad
+    await notifyCentersUnder18(265); //BBMP
+    await notifyCentersUnder18(294); //Bangalore Urban
+    const date = new Date();
+    console.log("Fetched cowin at", date);
+});
+
+job.start();
+
 module.exports = {
     getCentersUnder18,
     notifyCentersUnder18
