@@ -3,7 +3,7 @@ const telegramBotToken = require('../../config/config.json').telegram.bot.access
 const telegramChannel = require('../../config/config.json').telegram.toChannel.id;
 
 const getMessageForAvailableNotifications = (centerName, pincode, slots, date, price, vaccine) => {
-    return `${centerName} - ${pincode} has ${slots} available on ${date} for ${vaccine} ${price} vaccination`;
+    return `${centerName} - ${pincode} has ${slots} slots available on ${date} for ${vaccine} ${price} vaccination.`;
 };
 
 const sendMessageToChannel = (message) => {
@@ -18,5 +18,11 @@ const sendMessageToChannel = (message) => {
     return axios(params);
 };
 
+const notifyAvailability = (centerName, pincode, slots, date, price, vaccine) => {
+    const message = getMessageForAvailableNotifications(centerName, pincode, slots, date, price, vaccine);
+    return sendMessageToChannel(message);
+};
+
 module.exports = {
+    notifyAvailability
 };
