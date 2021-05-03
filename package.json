@@ -11,5 +11,9 @@
     "url": "AbhiBanayaNahi"
   },
   "author": "Pranav Totla",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "moment": "^2.29.1"
+  }
 }
